@@ -55,7 +55,7 @@ class Exporter(object):
         Calls replace_link() for every match of a HTML <a href...> construct.
 
         """
-        return re.sub(r'<a href="([^"])">', self.replace_link, re.I)
+        return re.sub(r'<a href=".*?>',  self.replace_link() , text)          
 
     def replace_link(self, match):
         url = match.group(1)
